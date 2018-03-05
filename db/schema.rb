@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20180303224058) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_comments_on_movie_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -69,5 +71,7 @@ ActiveRecord::Schema.define(version: 20180303224058) do
   end
 
   add_foreign_key "accounts", "users"
+  add_foreign_key "comments", "movies"
+  add_foreign_key "comments", "users"
   add_foreign_key "playlists", "accounts"
 end

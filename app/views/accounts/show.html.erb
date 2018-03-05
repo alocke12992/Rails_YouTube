@@ -1,6 +1,8 @@
+<h1>Welcome <%= current_user.first_name %> </h1>
+
 <% @comments.each do |comment| %>
     <div>
-      <%= comment.body %>
+      <%= comment.movie.title %>: <%= comment.body %>
     </div>
 
 <% end %>
