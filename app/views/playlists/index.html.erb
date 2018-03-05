@@ -1,0 +1,13 @@
+<h2 class=center>Playlists</h2>
+
+<div class=container>
+  <div class="right white-text btn med red accent-4">
+    <%= link_to 'Add a new playlist', new_account_playlist_path(@account) %>
+  </div>
+  <% @playlists.each do |playlist| %>
+    <div>
+      <%= link_to playlist.title, playlist %>
+    </div>
+    <% end %>
+    
+</div>

@@ -1,0 +1,13 @@
+<h2 class=center>Movies</h2>
+
+<div class=container>
+  <% @movies.each do |movie| %>
+  <div>
+  <%= link_to movie.title, movie %> 
+  </div>
+  <% end %>
+</div>
+
+<div class="right-align">
+<%= button_to 'LOG OUT', destroy_user_session_path, method: :delete%>
+</div>

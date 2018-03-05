@@ -1,0 +1,11 @@
+<div class="container"><h1>Edit A comment</h1>
+<%= form_for [@movie, @comment] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body, required: true %>
+  <br />
+  <%= f.submit %>
+<% end %>
+</div>
+<div class="right-align">
+<%= button_to 'LOG OUT', destroy_user_session_path, method: :delete%>
+</div>

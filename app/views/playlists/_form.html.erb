@@ -1,0 +1,6 @@
+
+  <%= form_for @playlist do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, required: true, autofocus: true %>
+    <%= f.submit %>
+  <% end %>

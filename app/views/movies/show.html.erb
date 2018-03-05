@@ -1,0 +1,22 @@
+<div class="container">
+<h2><%= @movie.title %></h2>
+
+<iframe src= "<%= @movie.trailer %> " height=768 width=1024></iframe>
+
+<h6>Genre: <%= @movie.genre %> Duration: <%= @movie.duration %></h6>
+<a href="<%= @movie.description %>"> IMDB</a>
+<br>
+<%= link_to 'Add Comment', new_movie_comment_path(@movie) %>
+<h5>Comments</h5>
+<% @movie.comments.each do |comment| %>
+  <%= render 'comments/comment', { comment: comment } %>
+  <%= link_to 'Edit Comment', edit_movie_comment_path(@movie, comment) %>
+  <%= link_to 'Delete', [@movie, @comment], method: :delete%>
+  <% end %>
+<hr />
+
+</div>
+
+<div class="right-align">
+<%= button_to 'LOG OUT', destroy_user_session_path, method: :delete%>
+</div>
