@@ -1,6 +1,10 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :update, :edit, :destroy]
 
+  def show_genre
+    @genre = Movie.where(genre: params[:genre])
+  end
+  
   def index
     @movies = Movie.all
   end

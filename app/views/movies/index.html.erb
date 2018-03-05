@@ -1,11 +1,37 @@
+
 <h2 class=center>Movies</h2>
 
+   
 <div class=container>
-  <% @movies.each do |movie| %>
-  <div>
-  <%= link_to movie.title, movie %> 
+  <a class='dropdown-button btn  red darken-4' href='#' data-activates='dropdown1'>Genre</a>
+  <ul id='dropdown1' class='dropdown-content'>
+    <% genre = @movies.distinct.pluck(:genre) %>
+      <% genre.each do |m| %>
+        <li>
+          <%= link_to m, genre_path(genre: m) %>
+        </li>
+        <% end %>
+  </ul>
+  <br /> 
+  <div class='row'> 
+    <% @movies.each do |movie| %>
+      <div class="col s12 m7 l3">
+        <div class='card'>
+          <div class="card-image">
+            <div class="video-container">
+              <iframe src="<%= movie.trailer %>"></iframe>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              <h6 class="blue-text text-darken-3"><%= link_to movie.title, movie %></h6>
+            </div>
+            <p><%= movie.genre %> | <%= movie.duration %></p>
+          </div>
+        </div>
+      </div> 
+    <% end %>
   </div>
-  <% end %>
 </div>
 
 <div class="right-align">

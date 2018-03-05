@@ -3,7 +3,7 @@
   </h2>
   <hr />
     <%= link_to "See Comments", account_path(@accounts) %>
-    <%= link_to "Playlists", account_playlists_path(@accounts) %>
+    <%= link_to "Playlists", playlists_index_path %>
 </div>
 <div class="right-align">
 <%= button_to 'LOG OUT', destroy_user_session_path, method: :delete%>

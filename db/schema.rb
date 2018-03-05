@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20180303224058) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
-    t.float "balance"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,12 +24,11 @@ ActiveRecord::Schema.define(version: 20180303224058) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
     t.integer "movie_id"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -71,6 +69,5 @@ ActiveRecord::Schema.define(version: 20180303224058) do
   end
 
   add_foreign_key "accounts", "users"
-  add_foreign_key "comments", "users"
   add_foreign_key "playlists", "accounts"
 end

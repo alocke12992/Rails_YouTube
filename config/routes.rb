@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
 
-  
+  get 'playlists/index'
+
+  get 'playlists/show'
+
+  get 'playlists/new'
+
+  get 'playlists/edit'
 
   devise_for :users
   root 'movies#index'
+  get "/genre/:genre", to: "movies#show_genre", as: "genre"
 
-  resources :movies
-  # resources :comments
-  resources :accounts do 
-    resources :playlists 
-  end 
 
   resources :accounts do
     member do
@@ -18,10 +20,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # scope'movies/:movie_id', as: 'movie' do
-  #
-  #   resources :comments, only: [:new, :create]
-  # end
 
   resources :movies do
     resources :comments

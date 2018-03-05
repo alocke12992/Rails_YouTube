@@ -1,0 +1,30 @@
+<h2 class=center><%= @genre.first.genre %></h2>
+<div class=container>
+  <div class='row'>
+    <% @genre.each do |movie| %>
+      <div class="col s12 m7 l3">
+        <div class='card'>
+          <div class="card-image">
+            <div class="video-container">
+              <iframe src="<%= movie.trailer %>"></iframe>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              <h6 class="blue-text text-darken-3">
+                <%= link_to movie.title, movie %>
+              </h6>
+            </div>
+            <p>
+              <%= movie.genre %> |
+                <%= movie.duration %>
+            </p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+  <h3>
+    <%= link_to 'Back', movies_path %>
+  </h3>
+</div>
